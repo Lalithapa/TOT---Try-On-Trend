@@ -1,20 +1,39 @@
-# TryOnTrend portfolio site
+# tryontrend.com
 
-A responsive, static marketing and portfolio page for TryOnTrend. It uses plain HTML, CSS, and JavaScript; there is no build step or dependency install.
+The marketing site for **TryOnTrend**, live virtual try-on for Shopify. Static HTML, CSS and a few lines of JavaScript: no build step, no dependencies.
+
+## Pages
+
+| Path | File | What's on it |
+| --- | --- | --- |
+| `/` | `index.html` | Hero, how it works, the two try-on modes, merchant features, analytics, privacy, pricing, FAQ |
+| `/support/` | `support/index.html` | Contact, setup guide, troubleshooting |
+| `/privacy/` | `privacy/index.html` | Privacy policy (use this URL in the Shopify App Store listing) |
+| `/terms/` | `terms/index.html` | Terms of service |
+| 404 | `404.html` | Not-found page (Vercel serves it automatically) |
+
+Shared files: `assets/css/site.css`, `assets/js/site.js` (mobile menu, header border, footer year), `assets/favicon.svg`, and images in `assets/img/` (`og.jpg` is the 1200×630 social share image).
+
+The header and footer are repeated in every page, so change them in all five files. Facts on the site (plans, prices, allowances, the 14-day revenue window, data retention) mirror the TryOnTrend app; update both together.
+
+## Things to check before launch
+
+- **App Store link:** every "Install on Shopify" button points to `https://apps.shopify.com/tryontrend`. Update it if the listing URL is different once the app is published.
+- **Support email:** `support@tryontrend.com` must be set up and receiving mail. It's on every page and in the app.
+- **Legal pages:** the privacy policy and terms describe how the app actually works, but have them reviewed for your business. Add your legal entity name and address if required where you operate.
 
 ## Preview locally
 
-Open `index.html` in a browser. The editorial hero image is stored in `assets/`. Google Fonts are optional; system font fallbacks are included.
+Pages use root-relative links (`/assets/...`), so serve the folder rather than opening the file:
+
+```shell
+python3 -m http.server 8000
+# open http://localhost:8000
+```
 
 ## Deploy with Vercel
 
-1. Import this GitHub repository into Vercel.
-2. Set the framework preset to **Other**.
-3. Leave the build command empty and use the repository root as the output directory.
-4. Deploy. Vercel will serve `index.html` and the local `assets/` folder directly.
+1. Import this repository into Vercel. Framework preset: **Other**. Leave the build command empty; the output directory is the repository root.
+2. Add the domain `tryontrend.com` (and `www.tryontrend.com`, redirecting to it) under **Settings → Domains**, then point the DNS records at GoDaddy to Vercel as shown there.
 
-After the first deployment, Vercel can deploy later Git pushes automatically. See [Vercel's GitHub deployment guide](https://vercel.com/docs/git/vercel-for-github) and [build configuration for projects without a build step](https://vercel.com/docs/builds/configure-a-build).
-
-## Contact shown on the site
-
-Support: [developeragentic@gmail.com](mailto:developeragentic@gmail.com) · 9:00 AM–5:00 PM PST
+`vercel.json` turns on clean URLs and adds security headers (CSP, HSTS, frame and referrer policies) and caching for `/assets/`. `robots.txt` and `sitemap.xml` are at the root.
