@@ -1560,3 +1560,15 @@ h3 {
 .not-found .display {
   font-size: clamp(64px, 10vw, 140px);
 }
+
+.footer-contact {
+  display: grid;
+  gap: 4px;
+  margin-top: 18px;
+  font-style: normal;
+  color: var(--ink-2);
+}
+
+.footer-contact a {
+  color: var(--cobalt);
+}
