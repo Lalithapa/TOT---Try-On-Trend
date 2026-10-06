@@ -19,7 +19,7 @@ The header and footer are repeated in every page, so change them in all five fil
 ## Things to check before launch
 
 - **App Store link:** every "Install on Shopify" button points to `https://apps.shopify.com/tryontrend`. Update it if the listing URL is different once the app is published.
-- **Support email:** `support@tryontrend.com` must be set up and receiving mail. It's on every page and in the app.
+- **Support email:** the site (and the app's Help page) use `developeragentic@gmail.com` because tryontrend.com has no email set up yet. Once domain email works, switch to `support@tryontrend.com` everywhere.
 - **Legal pages:** the privacy policy and terms describe how the app actually works, but have them reviewed for your business. Add your legal entity name and address if required where you operate.
 
 ## Preview locally
